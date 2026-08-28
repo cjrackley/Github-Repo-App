@@ -11,6 +11,7 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/" />
   <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="theme.css" rel="stylesheet" />
   <link href="style.css" rel="stylesheet" />
   <link href="detail-style.css" rel="stylesheet" />
   <meta name="theme-color" content="#712cf9" />
@@ -82,19 +83,37 @@
     <div class="album py-5 bg-body-tertiary">
       <div class="container" id="main-container">
         <div id="title-section">
-          <div>
-            <div>
+          <div class="detail-left">
+            <div class="page-title">
               <h1>Static Website</h1>
-              <p><b>Related Languages/Topics: </b>HTML, CSS</p>
+              <span class="page-year">2024</span>
             </div>
-            <button href="/index.html">Back</button>
+
+            <div class="info-card">
+              <div class="info-row">
+                <span class="label">Status</span>
+                <span class="value status-complete">Complete</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Languages &amp; Topics</span>
+                <span class="value">HTML, CSS</span>
+              </div>
+              <div class="info-row">
+                <span class="label">GitHub</span>
+                <span class="value"><a href="https://github.com/cjrackley/CSC340-static-website">Repo</a></span>
+              </div>
+              <div class="info-row">
+                <span class="label">Website</span>
+                <span class="value"><a href="https://cjrackley.github.io/CSC340-static-website/">Live site</a></span>
+              </div>
+            </div>
           </div>
+
           <img class="detail-img" src="images/web-1.jpg">
         </div>
-        <div id="description-section">
-          <h4>Description:</h4>
-          <p>
-            This Project was done during my Software Engineering class. We were learning about the
+
+        <div class="description-box">
+          <p>This Project was done during my Software Engineering class. We were learning about the
             prototyping process and were tasked with making a prototype with a theme of our choosing. The website is a
             mini wiki page themed around the anime Jujutsu Kaisen. It includes detailed landing page, about page, a
             single
@@ -104,11 +123,7 @@
             <br><br>I learned a lot of CSS and how elements can be modified using CSS. I was able to come up with a
             design
             that matched the color scheme of the anime as well as adding some elements I personally thought looked
-            great.
-          </p>
-          <p><b>Status:</b> Complete</p>
-          <p> <b>GitHub Link:</b> <a href="https://github.com/cjrackley/CSC340-static-website">Repo</a></p>
-          <p><b>Website Link: </b> <a href="https://cjrackley.github.io/CSC340-static-website/">Website</a></p>
+            great.</p>
         </div>
       </div>
     </div>

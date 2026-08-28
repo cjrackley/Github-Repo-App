@@ -1,18 +1,127 @@
+/* detail-style.css - details page only. Loads after theme.css. */
 #title-section {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
+}
+
+/* Left column shrinks before the image does, but never below 320px. */
+.detail-left {
+  flex: 1 1 320px;
+  min-width: 0;
 }
 
 #main-container {
-    min-height: 550px;
+  min-height: 550px;
 }
 
 .detail-img {
-    width: 55%;
-    max-width: 100%;
-    height: auto;
-    border-radius: .5rem;
+  flex: 0 0 auto;
+  width: 55%;
+  height: auto;
+  border-radius: .5rem;
+  align-self: flex-start;
+}
+
+/* ---------- Title with accent bar ---------- */
+.page-title {
+  border-left: 4px solid var(--accent);
+  padding-left: 16px;
+  margin: 0 0 45px;
+}
+
+.page-title h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page-year {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ---------- Info card: label / value rows ---------- */
+.info-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-row .label {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.info-row .value {
+  color: var(--text);
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.info-row .value a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.info-row .value.status-complete {
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* ---------- Description container ----------
+   min-height keeps the box from collapsing around short copy; it grows
+   past this on its own once the text is longer.                        */
+.description-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 30px;
+  min-height: 260px;
+}
+
+.description-box p {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0 0 1rem;
+}
+
+.description-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* Stack the image under the left column once the row gets cramped. */
+@media (max-width: 767.98px) {
+  #title-section {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .detail-img {
+    width: 100%;
+    max-width: none;
+    order: -1;          /* image first, then title + info card */
+  }
+
+  .description-box {
+    padding: 20px 22px;
+    min-height: 0;
+  }
 }
