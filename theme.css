@@ -1,0 +1,85 @@
+/* theme.css â€” palette bridge. Link AFTER bootstrap.min.css and style.css.
+   This does not define components; it retunes the Bootstrap variables the
+   existing markup already consumes. Save this file as UTF-8. */
+
+/* @import must be the first rule in the file or browsers drop it. */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+
+/* Both selectors are needed: the pages set data-bs-theme="dark", so matching
+   that attribute (plus loading after Bootstrap) is what wins the cascade. */
+:root,
+[data-bs-theme="dark"] {
+  /* --- source palette --- */
+  --bg: #262230;
+  --surface: #322D3E;
+  --border: #453E55;
+  --nav: #171420;
+  --accent: #B39DDB;
+  --accent-hover: #C6B5E4;
+  --accent-contrast: #171420;
+  --text: #ECEAF4;
+  --text-muted: #B0A9C2;
+  --text-dim: #9C94B0;
+  --success: #8FE0A8;
+
+  /* --- mapped onto Bootstrap --- */
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-body-font-family: 'Sora', system-ui, sans-serif;
+  --bs-emphasis-color: var(--text);
+  --bs-secondary-color: var(--text-muted);   /* .text-body-secondary */
+  --bs-border-color: var(--border);
+
+  /* .bg-body-tertiary (the album band) reads the -rgb form */
+  --bs-tertiary-bg: var(--surface);
+  --bs-tertiary-bg-rgb: 50, 45, 62;
+
+  /* .bg-dark / .text-bg-dark (navbar + collapse panel) read --bs-dark-rgb.
+     Setting the var avoids fighting the utility class's !important. */
+  --bs-dark-rgb: 23, 20, 32;
+
+  --bs-link-color: var(--accent);
+  --bs-link-hover-color: var(--accent-hover);
+  --bs-focus-ring-color: rgba(179, 157, 219, 0.4);
+}
+
+/* Cards default to --bs-card-bg: var(--bs-body-bg) in 5.3, which would make
+   them invisible against the page. Lift them onto the surface color. */
+.card {
+  --bs-card-bg: var(--surface);
+  --bs-card-border-color: var(--border);
+  --bs-card-cap-bg: var(--surface);
+}
+
+/* .btn-primary hardcodes its own hex values; it does not read --bs-primary. */
+.btn-primary {
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-color: var(--accent-contrast);
+  --bs-btn-hover-bg: var(--accent-hover);
+  --bs-btn-hover-border-color: var(--accent-hover);
+  --bs-btn-hover-color: var(--accent-contrast);
+  --bs-btn-active-bg: var(--accent-hover);
+  --bs-btn-active-border-color: var(--accent-hover);
+  --bs-btn-font-weight: 600;
+}
+
+/* GitHub Page button â€” the outlined counterpart. */
+.btn-secondary,
+.btn-outline-secondary {
+  --bs-btn-bg: transparent;
+  --bs-btn-color: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-color: var(--accent-contrast);
+  --bs-btn-hover-border-color: var(--accent);
+  --bs-btn-active-bg: var(--accent-hover);
+  --bs-btn-active-color: var(--accent-contrast);
+  --bs-btn-active-border-color: var(--accent-hover);
+}
+
+/* Contact links in the collapse panel are hardcoded .text-white in the HTML;
+   this is the one place worth an override rather than editing both pages. */
+#navbarHeader .list-unstyled a.text-white {
+  color: var(--accent) !important;
+}

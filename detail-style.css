@@ -1,0 +1,18 @@
+#title-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+#main-container {
+    min-height: 550px;
+}
+
+.detail-img {
+    width: 55%;
+    max-width: 100%;
+    height: auto;
+    border-radius: .5rem;
+}

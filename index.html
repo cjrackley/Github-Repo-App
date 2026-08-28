@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-bs-theme="auto">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,7 +9,7 @@
       content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
     />
     <meta name="generator" content="Astro v5.13.2" />
-    <title>Album example · Bootstrap v5.3</title>
+    <title>Portfolio Page</title>
     <link
       rel="canonical"
       href="https://getbootstrap.com/docs/5.3/examples/album/"
@@ -17,6 +17,7 @@
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet"/>
+    <link href="theme.css" rel="stylesheet"/>
     <meta name="theme-color" content="#712cf9" />
     
   </head>
@@ -46,75 +47,6 @@
         ></path>
       </symbol>
     </svg>
-    <div
-      class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle"
-    >
-      <button
-        class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-        id="bd-theme"
-        type="button"
-        aria-expanded="false"
-        data-bs-toggle="dropdown"
-        aria-label="Toggle theme (auto)"
-      >
-        <svg class="bi my-1 theme-icon-active" aria-hidden="true">
-          <use href="#circle-half"></use>
-        </svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul
-        class="dropdown-menu dropdown-menu-end shadow"
-        aria-labelledby="bd-theme-text"
-      >
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="light"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#sun-fill"></use>
-            </svg>
-            Light
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center"
-            data-bs-theme-value="dark"
-            aria-pressed="false"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#moon-stars-fill"></use>
-            </svg>
-            Dark
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-        <li>
-          <button
-            type="button"
-            class="dropdown-item d-flex align-items-center active"
-            data-bs-theme-value="auto"
-            aria-pressed="true"
-          >
-            <svg class="bi me-2 opacity-50" aria-hidden="true">
-              <use href="#circle-half"></use>
-            </svg>
-            Auto
-            <svg class="bi ms-auto d-none" aria-hidden="true">
-              <use href="#check2"></use>
-            </svg>
-          </button>
-        </li>
-      </ul>
     </div>
     <header data-bs-theme="dark">
       <div class="collapse text-bg-dark" id="navbarHeader">
@@ -157,9 +89,9 @@
       </div>
     </header>
     <main>
-      <section class="py-5 text-center container">
-        <div class="row py-lg-5">
-          <div class="col-lg-6 col-md-8 mx-auto">
+      <section id="hero" class="text-center container">
+        <div class="row">
+          <div class="col-lg-6 col-md-7 mx-auto">
             <h1 class="fw-light">Welcome!</h1>
             <p class="lead text-body-secondary">
               Below is a list of any projects I've either completed or that are still in progress. Most projects are available on GitHub and a link will be provided, if there is a project with no GitHub link it most likely does not have one.
@@ -305,17 +237,16 @@
       </div>
     </main>
     <footer class="text-body-secondary py-5">
-      <div class="container">
-        <p></p>
+    <div class="container">
         <p class="float-end mb-1"><a href="#">Back to top</a></p>
-        <p class="mb-1">
-           &copy; Bootstrap
-        </p>
-        <p class="mb-0">
-          New to Bootstrap? <a href="/">Visit the homepage</a> or read our
-          <a href="../getting-started/introduction">getting started guide</a>.
-        </p>
-      </div>
-    </footer>
+      <p class="mb-1">
+        Template used from &copy; Bootstrap and modified by Cameron Rackley
+      </p>
+      <p class="mb-0">
+        New to Bootstrap? <a href="/">Visit the homepage</a> or read our
+        <a href="../getting-started/introduction">getting started guide</a>.
+      </p>
+    </div>
+  </footer>
   </body>
 </html>
