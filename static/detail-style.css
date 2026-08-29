@@ -107,6 +107,20 @@
   margin-bottom: 0;
 }
 
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 1rem;
+  text-decoration: none;
+  margin-bottom: 16px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
 /* Stack the image under the left column once the row gets cramped. */
 @media (max-width: 767.98px) {
   #title-section {
