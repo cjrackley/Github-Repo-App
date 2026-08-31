@@ -12,7 +12,7 @@ public class ProjectService {
         this.projectRepository = projectRepository;
     }
 
-    public List<Project> getAll() {
+    public List<Project> getAllProjects() {
         return projectRepository.findAll();
     }
 
@@ -21,11 +21,8 @@ public class ProjectService {
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Project not found: " + id));
     }
 
-    public List<Project> findByTopic(String topic) {
-        return projectRepository.findByTopicContainingIgnoreCase(topic);
+    public List<Project> searchProjects(String keyword) {
+        return projectRepository.findByNameContainingIgnoreCaseOrTopicContainingIgnoreCase(keyword, keyword);
     }
-
-    public Project findByStatus(String status) {
-        return projectRepository.FindByStatus(status);
-    }
+    
 }
