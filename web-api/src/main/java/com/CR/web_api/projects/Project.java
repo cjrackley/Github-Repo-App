@@ -34,6 +34,8 @@ public class Project {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    private String brief;
+
     @ElementCollection
     @CollectionTable(name = "project_topics", joinColumns = @JoinColumn(name = "project_id"))
     @Column(name = "topic")

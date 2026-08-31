@@ -11,9 +11,9 @@
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/" />
   <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="theme.css" rel="stylesheet" />
-  <link href="style.css" rel="stylesheet" />
-  <link href="detail-style.css" rel="stylesheet" />
+  <link href="/theme.css" rel="stylesheet" />
+  <link href="/style.css" rel="stylesheet" />
+  <link href="/detail-style.css" rel="stylesheet" />
   <meta name="theme-color" content="#712cf9" />
 
 </head>
@@ -83,49 +83,39 @@
     <div class="album py-5 bg-body-tertiary">
       <div class="container" id="main-container">
 
-        <a class="back-link" href="index.html">&larr; Back to Projects</a>
+        <a class="back-link" href="/projects/index">&larr; Back to Projects</a>
         <div id="title-section">
           <div class="detail-left">
             <div class="page-title">
-              <h1>Static Website</h1>
-              <span class="page-year">2024</span>
+              <h1>&{project.title}</h1>
+              <span class="page-year">${project.date}</span>
             </div>
 
             <div class="info-card">
               <div class="info-row">
                 <span class="label">Status</span>
-                <span class="value status-complete">Complete</span>
+                <span class="value status-complete">${project.status}</span>
               </div>
               <div class="info-row">
                 <span class="label">Languages &amp; Topics</span>
-                <span class="value">HTML, CSS</span>
+                <span class="value">${project.topics}</span>
               </div>
               <div class="info-row">
                 <span class="label">GitHub</span>
-                <span class="value"><a href="https://github.com/cjrackley/CSC340-static-website">Repo</a></span>
+                <span class="value"><a href="${project.github}">Repo</a></span>
               </div>
               <div class="info-row">
                 <span class="label">Website</span>
-                <span class="value"><a href="https://cjrackley.github.io/CSC340-static-website/">Live site</a></span>
+                <span class="value"><a href="${project.website}">Live site</a></span>
               </div>
             </div>
           </div>
 
-          <img class="detail-img" src="images/web-1.jpg">
+          <img class="detail-img" src="${project.image}" alt="${project.title}">
         </div>
 
         <div class="description-box">
-          <p>This Project was done during my Software Engineering class. We were learning about the
-            prototyping process and were tasked with making a prototype with a theme of our choosing. The website is a
-            mini wiki page themed around the anime Jujutsu Kaisen. It includes detailed landing page, about page, a
-            single
-            details page for concept, and a Add Character page. While some buttons do work, not everything is
-            functional,
-            so if something doesn't seem to be working its likely not implimented haha...
-            <br><br>I learned a lot of CSS and how elements can be modified using CSS. I was able to come up with a
-            design
-            that matched the color scheme of the anime as well as adding some elements I personally thought looked
-            great.</p>
+          <p>${project.description}</p>
         </div>
       </div>
     </div>

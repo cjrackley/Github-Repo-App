@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Long>{
 
-    List<Project> findByNameContainingIgnoreCaseOrTopicContainingIgnoreCase(String nameKeyword, String topicKeyword);
-
-    Project FindByStatus(String status);
+    List<Project> findByTitleContainingIgnoreCaseOrTopicsContainingIgnoreCase(String titleKeyword, String topicsKeyword);
 
 }

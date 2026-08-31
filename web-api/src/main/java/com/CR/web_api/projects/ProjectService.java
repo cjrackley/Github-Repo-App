@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class ProjectService {
     private final ProjectRepository projectRepository;
 
@@ -22,7 +25,7 @@ public class ProjectService {
     }
 
     public List<Project> searchProjects(String keyword) {
-        return projectRepository.findByNameContainingIgnoreCaseOrTopicContainingIgnoreCase(keyword, keyword);
+        return projectRepository.findByTitleContainingIgnoreCaseOrTopicsContainingIgnoreCase(keyword, keyword);
     }
     
 }

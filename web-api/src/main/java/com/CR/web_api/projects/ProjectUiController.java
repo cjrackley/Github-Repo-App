@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 @Controller
 @RequestMapping("/projects")
 public class ProjectUiController {
+
     private final ProjectService projectService;
 
     public ProjectUiController(ProjectService projectService) {
