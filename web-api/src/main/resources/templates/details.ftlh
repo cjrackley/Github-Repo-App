@@ -60,7 +60,7 @@
             <h4>Contact</h4>
             <ul class="list-unstyled">
               <li><a href="https://www.linkedin.com/in/cameron-rackley-131a20303/" class="text-white">linkedin</a></li>
-              <li><a href="/images/cjrackley_resume.pdf" class="text-white">My Resume</a></li>
+              <li><a href="#" class="text-white">My Resume</a></li>
               <li>Email me: cameronrackley2023@outlook.com</li>
             </ul>
           </div>
@@ -87,7 +87,7 @@
         <div id="title-section">
           <div class="detail-left">
             <div class="page-title">
-              <h1>&{project.title}</h1>
+              <h1>${project.title}</h1>
               <span class="page-year">${project.date}</span>
             </div>
 

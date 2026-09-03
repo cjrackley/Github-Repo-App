@@ -1,5 +1,6 @@
 package com.CR.web_api.projects;
 
+import java.sql.Blob;
 import java.util.List;
 
 import jakarta.persistence.CollectionTable;
@@ -10,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -44,4 +46,7 @@ public class Project {
     private String github;
 
     private String website;
+
+    @Lob
+    private Blob image;
 }

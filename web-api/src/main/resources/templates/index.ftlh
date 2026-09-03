@@ -59,7 +59,7 @@
             <h4>Contact</h4>
             <ul class="list-unstyled">
               <li><a href="https://www.linkedin.com/in/cameron-rackley-131a20303/" class="text-white">linkedin</a></li>
-              <li><a href="/images/web-1.jpg" class="text-white">My Resume</a></li>
+              <li><a href="#" class="text-white">My Resume</a></li>
               <li>Email me: cameronrackley2023@outlook.com</li>
             </ul>
           </div>
@@ -99,29 +99,31 @@
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <#list projectList as project>
-            <div class="col">
-              <div class="card shadow-sm">
+          <#if projectList?has_content>
+            <#list projectList as project>
+              <div class="col">
+                <div class="card shadow-sm">
 
-                <img class="card-img-top" height="225" src="${project.image}" alt="${project.title}">
-                <title>${project.title}</title>
-                <div class="card-body">
-                  <p class="card-text">
-                    <b>${project.title}</b> <br> ${project.brief}
-                  </p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <a href="/projects/details/${project.id?c}"><button type="button" class="btn btn-sm btn-outline-secondary">
-                          View
-                        </button></a>
+                  <img class="card-img-top" height="225" src="${project.image}" alt="${project.title}">
+                  <title>${project.title}</title>
+                  <div class="card-body">
+                    <p class="card-text">
+                      <b>${project.title}</b> <br> ${project.brief}
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a href="/projects/details/${project.id?c}"><button type="button"
+                            class="btn btn-sm btn-outline-secondary">
+                            View
+                          </button></a>
+                      </div>
+                      <small class="text-body-secondary"><a href="${project.github}">GitHub</a></small>
                     </div>
-                    <small class="text-body-secondary"><a
-                        href="${project.github}">GitHub</a></small>
                   </div>
                 </div>
               </div>
-            </div>
-          </#list>
+            </#list>              
+          </#if>
         </div>
       </div>
     </div>
