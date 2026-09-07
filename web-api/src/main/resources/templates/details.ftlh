@@ -98,28 +98,33 @@
               </div>
               <div class="info-row">
                 <span class="label">Languages &amp; Topics</span>
-                <span class="value">${project.topics}</span>
+                <#if (project.topics)?has_content>
+                  ${project.topics?join(", ")}
+                  <#else>
+                    <span class="value">-</span>
+                </#if>
               </div>
               <div class="info-row">
                 <span class="label">GitHub</span>
                 <#if (project.github)?has_content>
                   <span class="value"><a href="${project.github}">Repo</a></span>
-                <#else>
-                  <span class="value">No Repo</span>
+                  <#else>
+                    <span class="value">No Repo</span>
                 </#if>
               </div>
               <div class="info-row">
                 <span class="label">Website</span>
                 <#if (project.website)?has_content>
                   <span class="value"><a href="${project.website}">Live site</a></span>
-                <#else>
-                  <span class="value">No Website</span>
+                  <#else>
+                    <span class="value">No Website</span>
                 </#if>
               </div>
             </div>
           </div>
 
-          <img class="detail-img" src="${project.image}" alt="${project.title}">
+          <img src="/projects/picture/${project.id?c}" alt="${project.title}" onerror="this.src='/question.jpg'">
+
         </div>
 
         <div class="description-box">

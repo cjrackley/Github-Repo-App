@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import jakarta.transaction.Transaction;
@@ -19,7 +20,7 @@ import org.springframework.util.StreamUtils;
 import org.springframework.transaction.support.TransactionTemplate;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/projects")
 public class ProjectUiController {
 
     private final ProjectService projectService;
@@ -31,7 +32,7 @@ public class ProjectUiController {
         this.transactionTemplate = transactionTemplate;
     }
 
-    @GetMapping("/projects")
+    @GetMapping()
     public String getAllProjects(Model model) {
         model.addAttribute("projectList", projectService.getAllProjects());
         return "index";
@@ -45,9 +46,12 @@ public class ProjectUiController {
     }
 
     @GetMapping("/search")
-    public String searchProjects(String query, Model model) {
-        model.addAttribute("projectList", projectService.searchProjects(query));
-        return "index";
+    public String searchProjects(
+        @RequestParam(name = "query", required = false, defaultValue = "") String query, Model model) {
+            String q = query.trim();
+            model.addAttribute("query", q);
+            model.addAttribute("projectList", q.isEmpty() ? projectService.getAllProjects() : projectService.searchProjects(q));
+            return "index";
     }
 
     @GetMapping("/picture/{id}")
