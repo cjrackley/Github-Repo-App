@@ -88,13 +88,13 @@
           <div class="detail-left">
             <div class="page-title">
               <h1>${project.title}</h1>
-              <span class="page-year">${project.date}</span>
+              <span class="page-year">${(project.date)!"-"}</span>
             </div>
 
             <div class="info-card">
               <div class="info-row">
                 <span class="label">Status</span>
-                <span class="value status-complete">${project.status}</span>
+                <span class="value status-complete">${(project.status)!"Unknown"}</span>
               </div>
               <div class="info-row">
                 <span class="label">Languages &amp; Topics</span>
@@ -102,11 +102,19 @@
               </div>
               <div class="info-row">
                 <span class="label">GitHub</span>
-                <span class="value"><a href="${project.github}">Repo</a></span>
+                <#if (project.github)?has_content>
+                  <span class="value"><a href="${project.github}">Repo</a></span>
+                <#else>
+                  <span class="value">No Repo</span>
+                </#if>
               </div>
               <div class="info-row">
                 <span class="label">Website</span>
-                <span class="value"><a href="${project.website}">Live site</a></span>
+                <#if (project.website)?has_content>
+                  <span class="value"><a href="${project.website}">Live site</a></span>
+                <#else>
+                  <span class="value">No Website</span>
+                </#if>
               </div>
             </div>
           </div>
@@ -115,7 +123,7 @@
         </div>
 
         <div class="description-box">
-          <p>${project.description}</p>
+          <p>${(project.description)!"No Description."}</p>
         </div>
       </div>
     </div>

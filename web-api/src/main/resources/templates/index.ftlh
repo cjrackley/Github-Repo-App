@@ -99,12 +99,11 @@
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <#if projectList?has_content>
             <#list projectList as project>
               <div class="col">
                 <div class="card shadow-sm">
 
-                  <img class="card-img-top" height="225" src="${project.image}" alt="${project.title}">
+                  <img class="card-img-top" height="225" src="/projects/picture/${project.id?c}" alt="${project.title}">
                   <title>${project.title}</title>
                   <div class="card-body">
                     <p class="card-text">
@@ -122,8 +121,11 @@
                   </div>
                 </div>
               </div>
+            <#else>
+              <div class="col-12 text-center text-body-secondary py-5">
+                <p>No projects to show yet.</p>
+              </div>
             </#list>              
-          </#if>
         </div>
       </div>
     </div>

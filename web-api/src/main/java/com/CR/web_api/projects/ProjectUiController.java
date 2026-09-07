@@ -19,7 +19,7 @@ import org.springframework.util.StreamUtils;
 import org.springframework.transaction.support.TransactionTemplate;
 
 @Controller
-@RequestMapping("/projects")
+@RequestMapping("/")
 public class ProjectUiController {
 
     private final ProjectService projectService;
@@ -31,7 +31,7 @@ public class ProjectUiController {
         this.transactionTemplate = transactionTemplate;
     }
 
-    @GetMapping()
+    @GetMapping("/projects")
     public String getAllProjects(Model model) {
         model.addAttribute("projectList", projectService.getAllProjects());
         return "index";
