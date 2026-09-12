@@ -1,5 +1,6 @@
 package com.CR.web_api.projects;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import javax.management.RuntimeErrorException;
@@ -9,10 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.transaction.Transaction;
 
 import org.springframework.ui.Model;
@@ -72,4 +76,26 @@ public class ProjectUiController {
 
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(stream);
     }
+
+    @GetMapping("/new")
+    public String create(Model model) {
+        model.addAttribute("project", new Project());
+        return "form";
+    }
+
+    
+    @PostMapping("/save")
+    public String createProject(Project project, MultipartFile projectImageFile, HttpSession session) {
+        Project created = projectService.createProject(project);
+        if (projectImageFile != null && !projectImageFile.isEmpty()) {
+            try {
+                projectService.saveProjectImage(created.getId(), projectImageFile.getInputStream());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        session.setAttribute("projectId", created.getId());
+        return "redirect:/projects";
+    }
+    
 }
