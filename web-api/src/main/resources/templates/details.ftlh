@@ -83,7 +83,7 @@
     <div class="album py-5 bg-body-tertiary">
       <div class="container" id="main-container">
 
-        <a class="back-link" href="/projects/index">&larr; Back to Projects</a>
+        <a class="back-link" href="/projects">&larr; Back to Projects</a>
         <div id="title-section">
           <div class="detail-left">
             <div class="page-title">
@@ -123,7 +123,7 @@
             </div>
           </div>
 
-          <img src="/projects/picture/${project.id?c}" alt="${project.title}" onerror="this.src='/question.jpg'">
+          <img class="detail-img" src="/projects/picture/${project.id?c}" alt="${project.title}" onerror="this.src='/question.jpg'">
 
         </div>
 

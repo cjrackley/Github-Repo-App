@@ -29,13 +29,17 @@
             <label for="website">Project Website</label>
             <input type="text" id="website" name="website" placeholder="e.g. https://cjrackley.github.io/project/">
 
-            <label for="project">Project Image</label>
-            <input type="file" name="ProjectImageFile" id="ProjectImageFile" accept="image/*">
+            <label for="projectImageFile">Project Image</label>
+            <input type="file" name="projectImageFile" id="projectImageFile" accept="image/*">
 
             <label for="topics">Project Topics</label>
             <input type="text" id="topics" name="topics" 
-            value="<#if provider.specialties??>${provider.specialties?join(', ')}</#if>"
+            value="<#if project.topics??>${project.topics?join(', ')}</#if>"
             placeholder="e.g. HTML, Agentic Workflows, DB handling">
+            <small>Seperate topics with commas.</small>
+
+
+            <button type="submit">Submit</button>
 
         </form>
     </main>
