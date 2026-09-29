@@ -20,7 +20,6 @@ import org.springframework.util.StreamUtils;
 import org.springframework.transaction.support.TransactionTemplate;
 
 @Controller
-@RequestMapping("/projects")
 public class ProjectUiController {
 
     private final ProjectService projectService;
@@ -31,21 +30,22 @@ public class ProjectUiController {
         this.projectService = projectService;
         this.transactionTemplate = transactionTemplate;
     }
+    
 
-    @GetMapping()
+    @GetMapping({"/", "/projects"})
     public String getAllProjects(Model model) {
         model.addAttribute("projectList", projectService.getAllProjects());
         return "index";
     }
 
-    @GetMapping("details/{id}")
+    @GetMapping("/projects/details/{id}")
     public String getProjectById(@PathVariable long id, Model model) {
         Project project = projectService.getById(id);
         model.addAttribute("project", project);
         return "details";
     }
 
-    @GetMapping("/search")
+    @GetMapping("/projects/search")
     public String searchProjects(
         @RequestParam(name = "query", required = false, defaultValue = "") String query, Model model) {
             String q = query.trim();
@@ -54,7 +54,7 @@ public class ProjectUiController {
             return "index";
     }
 
-    @GetMapping("/picture/{id}")
+    @GetMapping("/projects/picture/{id}")
     public ResponseEntity<StreamingResponseBody> streamProjectImage(@PathVariable Long id) {
 
         StreamingResponseBody stream = outputStream -> {

@@ -36,7 +36,7 @@ public class ProjectService {
             if (project != null && project.getImage() != null) {
                 return project.getImage().getBinaryStream();
             } else {
-                ClassPathResource defaultImage = new ClassPathResource("static/images/question.jpg");
+                ClassPathResource defaultImage = new ClassPathResource("static/question.jpg");
                 return defaultImage.getInputStream();
             }
         } catch (Exception e) {
