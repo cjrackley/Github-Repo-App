@@ -1,0 +1,17 @@
+# Build output: rebuilt inside the image, and copying a Windows-built
+# target/ into an ARM64 build context would be both large and useless.
+target/
+
+# Version control and editor state
+.git/
+.gitignore
+.gitattributes
+.idea/
+*.iml
+
+# Docs
+*.md
+
+# Secrets must never enter the build context
+.env
+*.key

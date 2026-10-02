@@ -1,0 +1,18 @@
+services:
+  web:
+    build: ./web-api
+    container_name: portfolio
+    # Binding to 127.0.0.1 is what keeps the JVM off the public internet.
+    # A bare "8080:8080" would make Docker write its own iptables rules that
+    # bypass the host firewall, exposing the app despite port 8080 being closed.
+    ports:
+      - "127.0.0.1:8080:8080"
+    # Supplies SPRING_DATASOURCE_URL. Created on the server, chmod 600, gitignored.
+    env_file: .env
+    restart: unless-stopped
+    # Caps Docker's JSON logs at 30 MB total so they cannot fill the 50 GB volume.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
