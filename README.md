@@ -6,6 +6,17 @@ This is a full-stack website designed to showcase a variety of projects that I h
 
 ## Architecture / Code Structure
 
+This repository consists of 2 main sections: The Spring Boot Web Application folder (named web-api), and the general non-specific files like the README and needed docker and maven files.
+
+In the web-api folder there are a few files to note. Going to the folder `/web-api/src/main/java/com/CR/web_api/projects`, there are 4 files that make up the database and related functions.
+
+* `Project.java` - Contains the elements for a project object. Things like name, languages, and descriptions are defined here.
+* `ProjectRepository.java` - Used to connect to the database, pulling data entries into the repo
+* `ProjectService.java` - Used to send queries to the repository, requesting specific data based on the functions used in the file.
+* `ProjectUiController.java` - This file connects the data to the website itself. Without it, the website would show empty boxes or server errors.
+
+Lomdok is used to generate the getters/setters/etc for the db queries, runs during compile time and adds all needed functions while compiling. When Maven runs javac and other 
+
 ## AI Assistance / Contribution
 
 ### Planning Design
@@ -31,9 +42,21 @@ After finalizing the overall look of the page, I prompted claude to build a key 
 ![Initial Example](/doc-images/keyvisual-1.png)
 ![Initial Example](/doc-images/keyvisual-2.png)
 
+## Getting the website launched
 
-## Setup Instructions
+I am not very familiar with different ways of making a public website for people to access. Previously I had used render.com but those instances get turned off when activity hasn't been detected for some time. This means it can take 1-2 minutes to load the website for someone who's accessing the site when its down.
+
+Using Claude, I came up with a set of tasks to do to get my project running through Oracle's cloud instance service. I was able to make a free instance through their always free program.
+
 
 ## Sample Interactions
+
+* `Clicking the 3-line button` - A dropdown window appears showing an about me paragraph with 2 links to the right: a link to my linkedIn and a popup link for my resume.
+
+* `Clicking the buttons under the Welcome paragraph` - The left button links to my LinkedIn, the right button links to my GitHub Profile.
+
+* `Clicking View on a project module` - Redirects to the details page for the selected project. This page gives details about the project, as well as links to potentional github repositories and live websites/applications.
+
+
 
 ## Reflection
